@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "problems",
+  "info": {
+    "name": "Problems",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "latitude": {
+      "required": true,
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float",
+      "required": true
+    },
+    "votes": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "isResolved": {
+      "type": "boolean",
+      "default": false
+    },
+    "resolvedAt": {
+      "type": "datetime"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "image.images"
+    }
+  }
+}

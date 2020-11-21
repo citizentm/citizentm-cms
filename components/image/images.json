@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_image_images",
+  "info": {
+    "name": "images",
+    "icon": "camera"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "text"
+    }
+  }
+}

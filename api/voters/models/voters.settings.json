@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "voters",
+  "info": {
+    "name": "Voters"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "identifier": {
+      "type": "string",
+      "required": true,
+      "private": false
+    },
+    "serial": {
+      "type": "string",
+      "required": true
+    },
+    "initiatives": {
+      "collection": "initiatives",
+      "via": "voters",
+      "dominant": true
+    }
+  }
+}

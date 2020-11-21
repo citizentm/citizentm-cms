@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "initiatives",
+  "info": {
+    "name": "Initiatives"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "votes": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "budget": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "initiators": {
+      "type": "component",
+      "repeatable": true,
+      "component": "people.initiators"
+    },
+    "project": {
+      "via": "initiatives",
+      "model": "projects"
+    },
+    "voters": {
+      "via": "initiatives",
+      "collection": "voters"
+    }
+  }
+}

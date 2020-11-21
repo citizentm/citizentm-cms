@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_people_initiators",
+  "info": {
+    "name": "Initiators",
+    "icon": "address-book"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

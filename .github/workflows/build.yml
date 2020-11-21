@@ -1,0 +1,32 @@
+name: 'Build API'
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+
+      - name: Login to Registry
+        run: docker login $REGISTRY -u $USER -p $TOKEN
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REGISTRY: docker.pkg.github.com
+          USER: arpadgabor
+
+      - name: Build image
+        run: docker build . -t "$REGISTRY/$GITHUB_REPOSITORY/$TAG:$GITHUB_SHA"
+        env:
+          TAG: backend
+          REGISTRY: docker.pkg.github.com
+
+      - name: Push to Registry
+        run: docker push "$REGISTRY/$GITHUB_REPOSITORY/$TAG:$GITHUB_SHA"
+        env:
+          TAG: backend
+          REGISTRY: docker.pkg.github.com
