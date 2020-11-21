@@ -1,5 +1,4 @@
 name: 'Build API'
-
 on:
   push:
     branches:
